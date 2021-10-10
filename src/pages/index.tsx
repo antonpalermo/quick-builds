@@ -12,6 +12,18 @@ const Index = () => {
     setTodos(tasks.data)
   }
 
+  const handleRemoveTask = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    index: number
+  ) => {
+    const response = await axios('/api/todo/remove', {
+      method: 'POST',
+      data: { index },
+    })
+    setTodos(response.data)
+    console.log(todos)
+  }
+
   React.useEffect(() => {
     getAllTasks()
   }, [])
@@ -41,6 +53,7 @@ const Index = () => {
               onChange={(e) => console.log('Changed', e)}
             />
             <h1>{todo.name}</h1>
+            <button onClick={(e) => handleRemoveTask(e, index)}>Delete</button>
           </div>
         ))}
       </div>

@@ -29,6 +29,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) =>
             res.status(200).send(result)
             res.end()
             break
+          case 'remove':
+            tasks.splice(req.body.index, 1)
+            res.status(200).send(tasks)
+            res.end()
+            break
         }
         break
       case 'GET':
