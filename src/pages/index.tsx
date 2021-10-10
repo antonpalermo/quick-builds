@@ -24,6 +24,18 @@ const Index = () => {
     console.log(todos)
   }
 
+  const handleUpdateTask = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const currentStatus = e.target.checked
+    const response = await axios('/api/todo/update', {
+      method: 'POST',
+      data: { index, isCompleted: currentStatus },
+    })
+    setTodos(response.data)
+  }
+
   React.useEffect(() => {
     getAllTasks()
   }, [])
@@ -50,7 +62,8 @@ const Index = () => {
               id="sample"
               name="sample"
               type="checkbox"
-              onChange={(e) => console.log('Changed', e)}
+              checked={todo.isCompleted || false}
+              onChange={(e) => handleUpdateTask(e, index)}
             />
             <h1>{todo.name}</h1>
             <button onClick={(e) => handleRemoveTask(e, index)}>Delete</button>

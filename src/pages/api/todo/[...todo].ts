@@ -29,6 +29,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) =>
             res.status(200).send(result)
             res.end()
             break
+          case 'update':
+            const { index, isCompleted } = req.body
+            tasks[index].isCompleted = isCompleted
+            res.status(200).send(tasks)
+            break
           case 'remove':
             tasks.splice(req.body.index, 1)
             res.status(200).send(tasks)
