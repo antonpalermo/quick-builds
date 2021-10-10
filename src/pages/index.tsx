@@ -6,6 +6,16 @@ import Task from '../entity/Task'
 const Index = () => {
   const [todos, setTodos] = React.useState<Task[]>([])
 
+  // get all available tasks
+  const getAllTasks = async () => {
+    const tasks = await axios.get('/api/todo/tasks')
+    setTodos(tasks.data)
+  }
+
+  React.useEffect(() => {
+    getAllTasks()
+  }, [])
+
   return (
     <div>
       <h1>Quick Builds - Todo App</h1>

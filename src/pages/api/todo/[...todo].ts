@@ -32,6 +32,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) =>
         }
         break
       case 'GET':
+        switch (action) {
+          case 'tasks':
+            res.status(200).send(tasks)
+            res.end()
+            break
+        }
         break
     }
   })
