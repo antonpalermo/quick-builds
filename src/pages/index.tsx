@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import TaskInput from '../components/TaskInput'
 import Task from '../entity/Task'
+import Card from '../components/Card'
 
 const Index = () => {
   const [todos, setTodos] = React.useState<Task[]>([])
@@ -41,8 +42,8 @@ const Index = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Quick Builds - Todo App</h1>
+    <div className={'container mx-auto max-w-xl py-10'}>
+      <h1 className={'headline'}>Tasks</h1>
       <TaskInput
         onSubmit={async (val: any, bag: any) => {
           const result = await axios.post('/api/todo/create', {
@@ -55,18 +56,16 @@ const Index = () => {
           setTodos((old) => [...old, { name, isCompleted }])
         }}
       />
-      <div>
+
+      <div className={'py-10'}>
         {todos.map((todo, index) => (
           <div key={index}>
-            <input
-              id="sample"
-              name="sample"
-              type="checkbox"
-              checked={todo.isCompleted || false}
-              onChange={(e) => handleUpdateTask(e, index)}
+            <Card
+              title={todo.name}
+              isCompleted={todo.isCompleted}
+              handleChange={(e) => handleUpdateTask(e, index)}
+              remove={(e) => handleRemoveTask(e, index)}
             />
-            <h1>{todo.name}</h1>
-            <button onClick={(e) => handleRemoveTask(e, index)}>Delete</button>
           </div>
         ))}
       </div>

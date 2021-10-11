@@ -13,6 +13,7 @@
   "author": "Anton Palermo <ANPalermo@outlook.com>",
   "license": "MIT",
   "dependencies": {
+    "@heroicons/react": "^1.0.4",
     "@tailwindcss/forms": "^0.3.4",
     "axios": "^0.22.0",
     "formik": "^2.2.9",
