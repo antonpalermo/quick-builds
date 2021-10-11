@@ -5,7 +5,7 @@ import { HeartIcon } from '@heroicons/react/solid'
 const Footer = () => {
   return (
     <footer className={'w-full'}>
-      <div className={'container mx-auto max-w-xl'}>
+      <div className={'container mx-auto max-w-xl px-5'}>
         <div className={'w-full inline-flex items-center justify-between'}>
           <p className={'inline-flex items-center'}>
             Crafted with&nbsp;

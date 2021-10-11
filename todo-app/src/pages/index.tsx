@@ -42,7 +42,7 @@ const Index = () => {
   }, [])
 
   return (
-    <div className={'container mx-auto max-w-xl pt-10'}>
+    <div className={'container mx-auto max-w-xl pt-10 px-5'}>
       <h1 className={'headline'}>Tasks</h1>
       <TaskInput
         onSubmit={async (val: any, bag: any) => {
