@@ -42,7 +42,7 @@ const Index = () => {
   }, [])
 
   return (
-    <div className={'container mx-auto max-w-xl py-10'}>
+    <div className={'container mx-auto max-w-xl pt-10'}>
       <h1 className={'headline'}>Tasks</h1>
       <TaskInput
         onSubmit={async (val: any, bag: any) => {
@@ -59,7 +59,7 @@ const Index = () => {
 
       <div className={'py-10'}>
         {todos.map((todo, index) => (
-          <div key={index}>
+          <div key={index} className={'mb-3'}>
             <Card
               title={todo.name}
               isCompleted={todo.isCompleted}
