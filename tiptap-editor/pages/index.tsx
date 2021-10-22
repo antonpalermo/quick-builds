@@ -1,5 +1,11 @@
-const Home = () => {
-  return <div>Sample</div>;
-};
+import Tiptap from '../components/Tiptap'
 
-export default Home;
+const Home = () => {
+  return (
+    <div>
+      <Tiptap />
+    </div>
+  )
+}
+
+export default Home

@@ -12,6 +12,8 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
+    "@tiptap/react": "^2.0.0-beta.84",
+    "@tiptap/starter-kit": "^2.0.0-beta.128",
     "autoprefixer": "^10.3.7",
     "next": "^11.1.2",
     "postcss": "^8.3.11",
