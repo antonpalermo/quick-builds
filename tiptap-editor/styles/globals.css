@@ -2,3 +2,11 @@
 @tailwind screens;
 @tailwind utilities;
 @tailwind components;
+
+.ProseMirror .is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #ced4da;
+  pointer-events: none;
+  height: 0;
+}
